@@ -1,0 +1,86 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Category {
+  id: ID!
+  name: String!
+  products: [Product!]
+}
+
+input CreateCategoryInput {
+  name: String!
+}
+
+input CreateProductInput {
+  categoryId: ID!
+  description: String!
+  name: String!
+  price: Float!
+}
+
+input CreateUserInput {
+  email: String!
+  firstName: String!
+  lastName: String!
+  password: String!
+}
+
+type Mutation {
+  createCategory(createCategoryInput: CreateCategoryInput!): Category!
+  createProduct(createProductInput: CreateProductInput!): Product!
+  createUser(createUserInput: CreateUserInput!): User!
+  removeCategory(id: ID!): Category!
+  removeProduct(id: ID!): Product!
+  removeUser(id: ID!): User!
+  updateCategory(updateCategoryInput: UpdateCategoryInput!): Category!
+  updateProduct(updateProductInput: UpdateProductInput!): Product!
+  updateUser(updateUserInput: UpdateUserInput!): User!
+}
+
+type Product {
+  category: Category!
+  categoryId: ID!
+  description: String!
+  id: ID!
+  name: String!
+  price: Float!
+}
+
+type Query {
+  categories: [Category!]!
+  category(id: ID!): Category!
+  product(id: ID!): Product!
+  products: [Product!]!
+  user(id: ID!): User!
+  users: [User!]!
+}
+
+input UpdateCategoryInput {
+  id: ID!
+  name: String
+}
+
+input UpdateProductInput {
+  categoryId: ID
+  description: String
+  id: ID!
+  name: String
+  price: Float
+}
+
+input UpdateUserInput {
+  email: String
+  firstName: String
+  id: ID!
+  lastName: String
+  password: String
+}
+
+type User {
+  email: String!
+  firstName: String!
+  id: ID!
+  lastName: String!
+  passwordHash: String!
+}
